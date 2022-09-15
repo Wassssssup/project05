@@ -23,6 +23,10 @@
 					<td width="450"><input type="text" name="writer" required size="60"></td>
 				</tr>
 				<tr height="40">
+					<td align="center" width="150">제목</td>
+					<td width="450"><input type="text" name="subject" required size="60"></td>
+				</tr>
+				<tr height="40">
 					<td align="center" width="150">이메일</td>
 					<td width="450"><input type="email" name="email" required size="60"></td>
 				</tr>
@@ -40,6 +44,7 @@
 						<input type="reset" value="다시 작성">&nbsp;&nbsp;
 						<button onclick="location.href='BoardList.jsp'">전체 게시글 보기</button>
 					</td>
+				</tr>
 			</table>
 		</form>
 </div>

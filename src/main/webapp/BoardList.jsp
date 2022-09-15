@@ -106,6 +106,23 @@
 			
 			if(endPage > pageCount)
 				endPage=pageCount;
+			
+			if(startPage > 10){
+	%>
+			<a href="BoardList.jsp?pageNum=<%=startPage-10 %>">[이전]></a>
+	<%
+			}
+			for(int i=startPage;i<=endPage;i++){
+	%>
+			<a href="BoardList.jsp?pageNum=<%=i %>">[<%=i %>]</a>
+	<%
+			}
+			
+			if(endPage < pageCount){
+	%>			
+			<a href="BoardList.jsp?pageNum=<%=startPage+10%>">[다음]></a>
+	<%
+			}
 		}
 	%>	
 	</p>
