@@ -87,7 +87,27 @@
 		%>
 	</table>
 	<p>
-	
+	<% 
+		int pageCount=0;
+		int startPage=1;
+		int pageBlock=10;
+		
+		if(count > 0){
+			pageCount=count/pageSize+(count%pageSize == 0 ? 0 : 1);
+			
+			if(currentPage%10 != 0){
+				startPage=(currentPage/10)*10+1;
+			}else{
+				//startPage=((currentPage/10)-1)*10+1;
+				startPage=(currentPage-(pageBlock-1));
+			}
+			
+			int endPage=startPage+(pageBlock-1);
+			
+			if(endPage > pageCount)
+				endPage=pageCount;
+		}
+	%>	
 	</p>
 </div>
 </body>

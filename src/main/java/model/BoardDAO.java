@@ -18,10 +18,10 @@ public class BoardDAO {
 
 	public void getCon() {
 		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String dbURL="jdbc:oracle:thin:@localhost:1521:XE";
 			String dbID="scott";
 			String dbPassword="tiger";
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn=DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
 			e.printStackTrace();
