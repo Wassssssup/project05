@@ -155,25 +155,25 @@ public class BoardDAO {
 			getCon();
 			
 			try {
-				String levelsql = "update board set re_step = re_step+1 where ref =? and re_step > ?";
+				String levelsql="update board set re_level=re_level+1 where ref=? and re_level > ?";
 				pstmt = conn.prepareStatement(levelsql);
 				pstmt.setInt(1, ref);
 				pstmt.setInt(2, re_level);
 				pstmt.executeUpdate();
 				
 				//답변글 데이터를 저장
-				String sql="insert into borad values(board_seq.nextval,?,?,?,?,sysdate,?,?,?,0,?)";
-				pstmt = conn.prepareStatement(sql); //★
+				String sql="insert into board values(board_seq.nextval,?,?,?,?,sysdate,?,?,?,0,?)";
 				
+				pstmt = conn.prepareStatement(sql); //★
+								
 				pstmt.setString(1, bean.getWriter());
 				pstmt.setString(2, bean.getEmail());
 				pstmt.setString(3, bean.getSubject());
 				pstmt.setString(4, bean.getPassword());
 				pstmt.setInt(5,ref);
-				pstmt.setInt(6, re_step);
-				pstmt.setInt(7, re_level);
+				pstmt.setInt(6, re_step +1);
+				pstmt.setInt(7, re_level +1);
 				pstmt.setString(8, bean.getContent());
-				
 				
 				pstmt.executeUpdate();
 				
@@ -183,7 +183,7 @@ public class BoardDAO {
 			}
 		}
 		//num에 해당하는 객체를 업데이트.
-		public BoardBean getOneUpdateBorad(int num) {
+		public BoardBean getOneUpdateBoared(int num) {
 			BoardBean bean = new BoardBean();
 			getCon();
 			
